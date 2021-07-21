@@ -1,0 +1,63 @@
+(Open with Notepad++)
+These list all the features missing from the rework
+
+//////////////////////
+//	Mission Design	//
+//////////////////////
+
+🗸 Determine how much resources should the AI commander keep on each objective
+	For example, on a low scored Area the AI commander should try to keep fewer soldiers and vehicles
+🗸 Create files that contain default soldier and vehicles to be used for the Commander AI
+	This should make it easier to port the mission to mods, such as RHS
+- Create files that contain supply crate equipments for both sides
+- Implement a cunstruction system
+- Implement a simple vehicle shop for BLUEFOR
+
+//////////////////////
+//	Mission Logic	//
+//////////////////////
+
+🗸 Get area information from local database
+- Update area information to local database
+- Save player created srtuctures and vehicles to database
+	BLUEFOR will be able to capture resources from OPFOR, but we still need a source of income in case BLUEFOR runs completely dry
+- Spawn supply crates for BLUEFOR if the area has resources when it activates
+- Determine when an area is "under attack"
+- Generate OPFOR resources for each area
+	Supply boxes
+
+//////////////////////
+//	Commander AI	//
+//////////////////////
+
+- Determine highest non-captured Area
+	This will be marked as the capital
+	This area will have a balaned production focus, starting on level 2
+- Distribute starting resources based on score
+
+//////////////////////
+//	Commander Logic	//
+//////////////////////
+
+- Send resources to capital when capital still has "capacity"
+	The mission determines how much resources should each area keep, if there's excess and the capital is short on resources, the commander should send resources to the capital
+- Recruit/create assets
+	This includes determining what and when to create. For example, if the area met it's asset quota, it will stay idle to generate resources for the capital
+	On the other hand, the capital will try to create excess assets to distribute
+- Upgrade resource "generators"
+- Send out logi trucks with resources when necessary
+	When areas have excess, they should send it to the capital
+- Distribute assets from capital
+	Excess infantry and vehicles should be moved from the capital (but not from other places)
+- Reinforce attacked areas
+	If the (maximum) two closest areas have excess infantry/vehicles, they should send them over to assist
+- Create outposts for areas
+	These outposts will alert the area it's tied to (if it is active), and set it to being in combat
+
+//////////////////////
+//	BLUEFOR Logic	//
+//////////////////////
+
+🗸 Save players position inside a vehicle
+	Should only be saved in persistent vehicles
+- Create some sort of income for the BLUEFOR side
