@@ -14,9 +14,9 @@ if ((str _result) != "false") then {
 			_player setDir _result#1;
 		};
 		switch (_result#2) do {
-			case "STAND": { _player playAction "PlayerStand" };
-			case "CROUCH": { _player playAction "PlayerCrouch" };
-			case "PRONE": { _player playAction "PlayerProne" };
+			case "STAND": { _player switchAction "PlayerStand" };
+			case "CROUCH": { _player switchAction "PlayerCrouch" };
+			case "PRONE": { _player switchAction "PlayerProne" };
 			default { diag_log format ["Error loading stance for [ %1 ]", _player] };
 		};
 
@@ -50,16 +50,16 @@ if ((str _result) != "false") then {
 		} forEach _medical;
 
 		_player setUnitLoadout (_result#6);
-		[true] remoteExec ["bfm_fnc_welcomeMessage", _player, false];
+		[true, name _player] remoteExec ["bfm_fnc_welcomeMessage", _player, false];
 	} else {
 		[_player] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
-		[false] remoteExec ["bfm_fnc_welcomeMessage", _player, false];
+		[false, name _player] remoteExec ["bfm_fnc_welcomeMessage", _player, false];
 		_player setPos getPos bluforBaseSpawnPoint vectorAdd [random [-3, 0, 3], random [-3, 0, 3], 0];
 		_player setDir 90;
 	}
 } else {
 	[_player] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
-	[false] remoteExec ["bfm_fnc_welcomeMessage", _player, false];
+	[false, name _player] remoteExec ["bfm_fnc_welcomeMessage", _player, false];
 	_player setPos getPos bluforBaseSpawnPoint vectorAdd [random [-3, 0, 3], random [-3, 0, 3], 0];
 	_player setDir 90;
 }

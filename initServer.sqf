@@ -6,6 +6,8 @@ sleep 1;
 sleep 3;
 [] remoteExec ["bfm_fnc_loadBuildingDamage", 2, false];
 [] remoteExec ["bfm_fnc_loadAreas", 2, false];
+[] remoteExec ["bfm_fnc_loadTime", 2, false];
+[] remoteExec ["bfm_fnc_loadVehicles", 2, false];
 
 //Prepairing HC Connection
 addMissionEventHandler ["HandleDisconnect",
@@ -22,3 +24,6 @@ addMissionEventHandler ["BuildingChanged",
 		[(_this select 0)] remoteExec ["bfm_fnc_saveBuildingDamage", 2, false];
 	};
 }];
+
+sleep 1;
+[] execVM "scripts\saveDateTime.sqf";

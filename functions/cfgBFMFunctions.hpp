@@ -22,9 +22,13 @@ class BFMFunctions {
 		file = "functions\persistance\server";
 		class loadPatrols {};
 		class savePatrol {};
+		class saveVehicle {};
+		class saveTime {};
 		class saveBuildingDamage {};
 		class loadBuildingDamage {};
 		class loadAreas {};
+		class loadVehicles {};
+		class loadTime {};
 	};
 
 	class BFM_Debug
