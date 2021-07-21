@@ -1,6 +1,7 @@
 sleep 1;
 
 [] execVM "scripts\playerSave.sqf";
+[] execVM "scripts\registerConstructionObjects.sqf";
 
 //Load all necessary server settings from database
 sleep 3;
