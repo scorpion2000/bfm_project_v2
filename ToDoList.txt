@@ -10,7 +10,7 @@ These list all the features missing from the rework
 🗸 Create files that contain default soldier and vehicles to be used for the Commander AI
 	This should make it easier to port the mission to mods, such as RHS
 - Create files that contain supply crate equipments for both sides
-- Implement a cunstruction system
+🗸 Implement a cunstruction system
 - Implement a simple vehicle shop for BLUEFOR
 
 //////////////////////
