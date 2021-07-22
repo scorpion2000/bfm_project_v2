@@ -90,10 +90,10 @@ if (!isNull objectParent _player) then {
 	if ((vehicle _player) getVariable ["vehicleIndex", "-1"] != "-1") then {
 		_saveArray pushBack ((vehicle _player) getVariable "vehicleIndex");
 	} else {
-		_saveArray pushBack (-1);
+		_saveArray pushBack ("-1");
 	}
 } else {
-	_saveArray pushBack (-1);
+	_saveArray pushBack ("-1");
 };
 
 _inidbi = ["new", "BFM_PlayerStats"] call OO_INIDBI;
