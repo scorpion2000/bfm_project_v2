@@ -19,7 +19,7 @@ These list all the features missing from the rework
 
 🗸 Get area information from local database
 - Update area information to local database
-- Save player created srtuctures and vehicles to database
+🗸 Save player created srtuctures and vehicles to database
 	BLUEFOR will be able to capture resources from OPFOR, but we still need a source of income in case BLUEFOR runs completely dry
 - Spawn supply crates for BLUEFOR if the area has resources when it activates
 - Determine when an area is "under attack"
