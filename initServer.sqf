@@ -1,14 +1,13 @@
+missionNamespace setVariable ["serverIsLoading", true];
 sleep 1;
-
-[] execVM "scripts\playerSave.sqf";
-[] execVM "scripts\registerConstructionObjects.sqf";
 
 //Load all necessary server settings from database
 sleep 3;
-[] remoteExec ["bfm_fnc_loadBuildingDamage", 2, false];
-[] remoteExec ["bfm_fnc_loadAreas", 2, false];
-[] remoteExec ["bfm_fnc_loadTime", 2, false];
-[] remoteExec ["bfm_fnc_loadVehicles", 2, false];
+_return = [] remoteExec ["bfm_fnc_loadBuildingDamage", 2, false];
+_return = [] remoteExec ["bfm_fnc_loadAreas", 2, false];
+_return = [] remoteExec ["bfm_fnc_loadTime", 2, false];
+_return = [] remoteExec ["bfm_fnc_loadVehicles", 2, false];
+_return = [] remoteExec ["bfm_fnc_loadConstructions", 2, false];
 
 //Prepairing HC Connection
 addMissionEventHandler ["HandleDisconnect",
@@ -26,5 +25,11 @@ addMissionEventHandler ["BuildingChanged",
 	};
 }];
 
+
+["acex_fortify_objectPlaced", {[(_this select 2)] remoteExec ["bfm_fnc_saveConstruction", 2, false];}] call CBA_fnc_addEventHandler;
+
+missionNamespace setVariable ["serverIsLoading", false];
+
 sleep 1;
 [] execVM "scripts\saveDateTime.sqf";
+[] execVM "scripts\playerSave.sqf";
