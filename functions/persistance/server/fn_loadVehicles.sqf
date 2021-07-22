@@ -2,6 +2,7 @@ _inidbi = ["new", "BFM_WorldDetails"] call OO_INIDBI;
 
 _allKeys = ["getKeys", "vehicles"] call _inidbi;
 _vehicleArray = [];
+VEH_IND_COUNT = 0;
 
 {
 	sleep 0.1;

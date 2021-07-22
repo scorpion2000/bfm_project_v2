@@ -1,8 +1,8 @@
 params ["_vehicle"];
 _inidbi = ["new", "BFM_WorldDetails"] call OO_INIDBI;
 
-if (parseNumber (_vehicle getVariable ["vehicleIndex", "-1"]) == -1) then {
-	_vehicle setVariable ["vehicleIndex_", VEH_IND_COUNT];
+if (_vehicle getVariable ["vehicleIndex", "-1"] == "-1") then {
+	_vehicle setVariable ["vehicleIndex", str VEH_IND_COUNT];
 	missionNameSpace setVariable [format ["vehicle_%1", VEH_IND_COUNT], _vehicle];
 	[
 		"write",
