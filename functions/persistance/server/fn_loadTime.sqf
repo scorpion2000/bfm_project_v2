@@ -5,4 +5,4 @@ if ("exists" call _inidbi) then {
 	if (!isnil "_date") then {
 		setDate _date;
 	}
-}
+};
