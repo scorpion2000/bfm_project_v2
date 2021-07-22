@@ -87,7 +87,7 @@ _saveArray pushBack _medicalArray;
 _saveArray pushback (getUnitLoadout _player);
 _saveArray pushBack (alive _player);
 if (!isNull objectParent _player) then {
-	if ((vehicle _player) getVariable ["vehicleIndex", -1] != -1) then {
+	if ((vehicle _player) getVariable ["vehicleIndex", "-1"] != "-1") then {
 		_saveArray pushBack ((vehicle _player) getVariable "vehicleIndex");
 	} else {
 		_saveArray pushBack (-1);
