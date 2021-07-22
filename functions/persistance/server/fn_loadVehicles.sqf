@@ -16,6 +16,7 @@ _allKeys = ["getKeys", "vehicles"] call _inidbi;
 		} forEach _key#5#2;
 		clearItemCargoGlobal _vehicle;
 		_vehicle setVariable ["vehicleIndex", _keyIndex];
+		missionNamespace setVariable [format ["vehicle_%1", _keyIndex], _vehicle];
 	} else {
 		_keyIndex = _x;
 		_key = ["read", ["vehicles", _keyIndex]] call _inidbi;
