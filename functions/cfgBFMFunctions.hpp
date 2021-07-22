@@ -24,11 +24,13 @@ class BFMFunctions {
 		class savePatrol {};
 		class saveVehicle {};
 		class saveTime {};
+		class saveConstruction {};
 		class saveBuildingDamage {};
 		class loadBuildingDamage {};
 		class loadAreas {};
 		class loadVehicles {};
 		class loadTime {};
+		class loadConstructions {};
 	};
 
 	class BFM_Debug
