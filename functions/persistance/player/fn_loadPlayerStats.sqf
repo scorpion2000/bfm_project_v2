@@ -7,7 +7,7 @@ _result = (["read", ["playerPersistance", str (getPlayerUID _player)]] call _ini
 
 if ((str _result) != "false") then {
 	if (_result#7) then {
-		if (_result#8 != -1) then {
+		if (_result#8 != "-1") then {
 			_player moveInCargo (missionNamespace getVariable format ["vehicle_%1", _result#8]);
 		} else {
 			_player setPosASL _result#0;
