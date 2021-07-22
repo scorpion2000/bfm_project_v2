@@ -33,3 +33,4 @@ missionNamespace setVariable ["serverIsLoading", false];
 sleep 1;
 [] execVM "scripts\saveDateTime.sqf";
 [] execVM "scripts\playerSave.sqf";
+[] execVM "scripts\vehiclePeriodicSave.sqf";
