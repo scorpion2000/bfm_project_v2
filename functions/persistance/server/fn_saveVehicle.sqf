@@ -33,6 +33,9 @@ if (_vehicle getVariable ["vehicleIndex", "-1"] == "-1") then {
 		[(_this select 0)] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 		[(_this select 2)] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
 	}];
+	_vehicle addEventHandler ["Killed", {
+		[(_this select 0)] remoteExec ["bfm_fnc_removeVehicle", 2, false];
+	}];
 } else {
 	[
 		"write",

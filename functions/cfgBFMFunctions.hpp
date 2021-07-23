@@ -26,6 +26,7 @@ class BFMFunctions {
 		class saveTime {};
 		class saveConstruction {};
 		class saveBuildingDamage {};
+		class removeVehicle {};
 		class loadBuildingDamage {};
 		class loadAreas {};
 		class loadVehicles {};

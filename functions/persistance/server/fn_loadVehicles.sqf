@@ -29,6 +29,9 @@ VEH_IND_COUNT = 0;
 			[(_this select 0)] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 			[(_this select 2)] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
 		}];
+		_vehicle addEventHandler ["Killed", {
+			[(_this select 0)] remoteExec ["bfm_fnc_removeVehicle", 2, false];
+		}];
 	} else {
 		_keyIndex = _x;
 		_key = ["read", ["vehicles", _keyIndex]] call _inidbi;
