@@ -4,10 +4,17 @@ titleText [ format ["<t size='2.0' colorLink='#0000ff' font='PuristaBold'>You ar
 
 disableUserInput true;
 sleep 3;
-/*_serverIsLoadign = missionNamespace getVariable ["serverIsLoading", false];
-if (_serverIsLoadign) then {
-	sleep 10;
-};*/
+_missionIsLoading = missionNamespace getVariable ["missionLoading", false];
+if (_missionIsLoading) then {
+	sleep 2;
+	_missionIsLoading = missionNamespace getVariable ["missionLoading", false];
+};
+
+player addEventHandler ["Killed", {
+	[str (getPlayerUID (_this select 0))] remoteExec ["bfm_fnc_deletePlayer", 2, false];
+}];
 
 [player] remoteExec ["bfm_fnc_loadPlayerStats", 2, false];
 disableUserInput false;
+[] execVM "scripts\restrictVehicleByWeight.sqf";
+[] execVM "scripts\quickLoadout.sqf";

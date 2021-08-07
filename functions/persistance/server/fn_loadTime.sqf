@@ -6,3 +6,4 @@ if ("exists" call _inidbi) then {
 		setDate _date;
 	}
 };
+missionNamespace setVariable ["loadingTime", false];

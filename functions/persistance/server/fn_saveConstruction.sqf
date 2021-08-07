@@ -1,19 +1,21 @@
 params ["_object"];
-_inidbi = ["new", "BFM_WorldDetails"] call OO_INIDBI;
-[
-	"write",
+if (!isNil "_object") then {
+	_inidbi = ["new", "BFM_WorldDetails"] call OO_INIDBI;
 	[
-		"constructions", 
-		CONST_INDEX, 
-		[ 
-			typeOf _object,
-			getpos _object, 
-			getDir _object
+		"write",
+		[
+			"constructions", 
+			CONST_INDEX, 
+			[ 
+				typeOf _object,
+				getpos _object, 
+				getDir _object
+			]
 		]
-	]
-] call _inidbi;
+	] call _inidbi;
 
-CONST_INDEX = CONST_INDEX +1;
+	CONST_INDEX = CONST_INDEX +1;
+};
 
 _inidbi = ["new", "BFM_BlueforDetails"] call OO_INIDBI;
 [

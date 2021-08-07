@@ -9,3 +9,4 @@ if ("exists" call _inidbi) then {
 } else {
 	[] execVM "scripts\gatherAreas.sqf";
 };
+missionNamespace setVariable ["loadingAreas", false];

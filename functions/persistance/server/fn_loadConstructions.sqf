@@ -19,6 +19,7 @@ if ("exists" call _inidbi2) then {
 		] call acex_fortify_fnc_registerObjects;
 	}
 }  else {
+	CONST_INDEX = 0;
 	[
 		west, 
 		500, 
@@ -43,3 +44,4 @@ if ("exists" call _inidbi) then {
 		} forEach _keysArray;
 	}
 };
+missionNamespace setVariable ["loadingConstructions", false];

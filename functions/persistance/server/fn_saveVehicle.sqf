@@ -3,6 +3,11 @@ _inidbi = ["new", "BFM_WorldDetails"] call OO_INIDBI;
 
 if (_vehicle getVariable ["vehicleIndex", "-1"] == "-1") then {
 	_vehicle setVariable ["vehicleIndex", str VEH_IND_COUNT];
+	_inventory = [];
+	_inventory pushback (magazineCargo _vehicle);
+	_inventory pushback (getItemCargo _vehicle);
+	_inventory pushback (weaponCargo _vehicle);
+	_inventory pushback (getBackpackCargo _vehicle);
 	missionNameSpace setVariable [format ["vehicle_%1", VEH_IND_COUNT], _vehicle];
 	[
 		"write",
@@ -16,7 +21,8 @@ if (_vehicle getVariable ["vehicleIndex", "-1"] == "-1") then {
 				getFuelCargo _vehicle,
 				damage _vehicle,
 				getAllHitPointsDamage _vehicle,
-				getItemCargo _vehicle
+				_inventory,
+				magazinesAmmo _vehicle
 			]
 		]
 	] call _inidbi;
@@ -34,9 +40,14 @@ if (_vehicle getVariable ["vehicleIndex", "-1"] == "-1") then {
 		[(_this select 2)] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
 	}];
 	_vehicle addEventHandler ["Killed", {
-		[(_this select 0)] remoteExec ["bfm_fnc_removeVehicle", 2, false];
+		[(_this select 0)] remoteExec ["bfm_fnc_deleteVehicle", 2, false];
 	}];
 } else {
+	_inventory = [];
+	_inventory pushback (magazineCargo _vehicle);
+	_inventory pushback (getItemCargo _vehicle);
+	_inventory pushback (weaponCargo _vehicle);
+	_inventory pushback (getBackpackCargo _vehicle);
 	[
 		"write",
 		[
@@ -49,7 +60,8 @@ if (_vehicle getVariable ["vehicleIndex", "-1"] == "-1") then {
 				getFuelCargo _vehicle,
 				damage _vehicle,
 				getAllHitPointsDamage _vehicle,
-				getItemCargo _vehicle
+				_inventory,
+				magazinesAmmo _vehicle
 			]
 		]
 	] call _inidbi;

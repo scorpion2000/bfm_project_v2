@@ -25,6 +25,7 @@ These list all the features missing from the rework
 - Determine when an area is "under attack"
 - Generate OPFOR resources for each area
 	Supply boxes
+🗸 Set veight limits on certain vehicle positions (such as plane pilots and tank drivers)
 
 //////////////////////
 //	Commander AI	//
@@ -61,3 +62,5 @@ These list all the features missing from the rework
 🗸 Save players position inside a vehicle
 	Should only be saved in persistent vehicles
 - Create some sort of income for the BLUEFOR side
+- Setup "deployable" vehicles for FOB construction
+- Setup a vehicle shop for blufor

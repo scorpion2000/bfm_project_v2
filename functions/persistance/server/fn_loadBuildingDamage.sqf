@@ -33,3 +33,4 @@ _allMObjects = nearestTerrainObjects [_centerposition, [], (worldSize / 2)];
 		_found#0 setDamage [1, false];
 	};
 } forEach _keysArray;
+missionNamespace setVariable ["loadingBuildingDamage", false];
