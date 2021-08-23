@@ -14,7 +14,10 @@ player addEventHandler ["Killed", {
 	[str (getPlayerUID (_this select 0))] remoteExec ["bfm_fnc_deletePlayer", 2, false];
 }];
 
+sleep 1;
+
 [player] remoteExec ["bfm_fnc_loadPlayerStats", 2, false];
 disableUserInput false;
 [] execVM "scripts\restrictVehicleByWeight.sqf";
 [] execVM "scripts\quickLoadout.sqf";
+[] execVM "scripts\addAceActions.sqf";

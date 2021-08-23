@@ -8,7 +8,20 @@ _result = (["read", ["playerPersistance", str (getPlayerUID _player)]] call _ini
 if ((str _result) != "false") then {
 	if (_result#7) then {
 		if (_result#8 != "-1") then {
-			_player moveInAny (missionNamespace getVariable format ["vehicle_%1", _result#8]);
+			_vehicle = missionNamespace getVariable format ["vehicle_%1", _result#8];
+			systemChat str _vehicle;
+			_try = 0;
+			while {!(_player in _vehicle)} do {
+				switch (_try) do {
+					case 0: {_player moveInCargo _vehicle};
+					case 1: {_player moveInTurret _vehicle};
+					case 2: {_player moveInGunner _vehicle};
+					case 3: {_player moveInCommander _vehicle};
+					case 4: {_player moveInDriver _vehicle};
+					default { };
+				};
+				_try = _try + 1;
+			};
 		} else {
 			_player setPosASL _result#0;
 			_player setDir _result#1;

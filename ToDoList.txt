@@ -31,10 +31,11 @@ These list all the features missing from the rework
 //	Commander AI	//
 //////////////////////
 
-- Determine highest non-captured Area
+🗸 Determine highest non-captured Area
 	This will be marked as the capital
 	This area will have a balaned production focus, starting on level 2
 - Distribute starting resources based on score
+- Distribute starting military forces based on score
 
 //////////////////////
 //	Commander Logic	//

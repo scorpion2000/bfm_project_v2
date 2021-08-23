@@ -31,14 +31,17 @@ if (_vehicle getVariable ["vehicleIndex", "-1"] == "-1") then {
 	_vehicleArray = missionNamespace getVariable ["vehicleList", []];
 	_vehicleArray pushBack _vehicle;
 	missionNamespace setVariable ["vehicleList", _vehicleArray];
-	_vehicle addEventHandler ["GetIn", {
-		[(_this select 0)] remoteExec ["bfm_fnc_saveVehicle", 2, false];
-		[(_this select 2)] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
-	}];
-	_vehicle addEventHandler ["GetOut", {
-		[(_this select 0)] remoteExec ["bfm_fnc_saveVehicle", 2, false];
-		[(_this select 2)] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
-	}];
+	_hasCrewSpot = fullCrew [_vehicle, "", true];
+	if (count _hasCrewSpot != 0) then {
+		_vehicle addEventHandler ["GetIn", {
+			[(_this select 0)] remoteExec ["bfm_fnc_saveVehicle", 2, false];
+			[(_this select 2)] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
+		}];
+		_vehicle addEventHandler ["GetOut", {
+			[(_this select 0)] remoteExec ["bfm_fnc_saveVehicle", 2, false];
+			[(_this select 2)] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
+		}];
+	};
 	_vehicle addEventHandler ["Killed", {
 		[(_this select 0)] remoteExec ["bfm_fnc_deleteVehicle", 2, false];
 	}];

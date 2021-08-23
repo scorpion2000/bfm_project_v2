@@ -264,6 +264,7 @@ _action = ["BuyCrate1", "Buy empty crate (5$)", "", {
 	[] remoteExec ["bfm_fnc_saveConstruction", 2, false];
 	ACE_maxWeightCarry = 4000;
 	publicVariable "ACE_maxWeightCarry";
+	[_crate] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 }, {true}] call ace_interact_menu_fnc_createAction;
 [crateBuyLaptop, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -277,6 +278,7 @@ _action = ["BuyCrate2", "Buy Ammunitions Crate (25$)", "", {
 	["ammo",_crate] remoteExec ["bfm_fnc_applyCratePreset", 2, false];
 	ACE_maxWeightCarry = 4000;
 	publicVariable "ACE_maxWeightCarry";
+	[_crate] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 }, {true}] call ace_interact_menu_fnc_createAction;
 [crateBuyLaptop, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -290,6 +292,7 @@ _action = ["BuyCrate3", "Buy Basic Weapons Crate (40$)", "", {
 	["basicWeapons",_crate] remoteExec ["bfm_fnc_applyCratePreset", 2, false];
 	ACE_maxWeightCarry = 4000;
 	publicVariable "ACE_maxWeightCarry";
+	[_crate] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 }, {true}] call ace_interact_menu_fnc_createAction;
 [crateBuyLaptop, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -303,6 +306,7 @@ _action = ["BuyCrate4", "Buy Special Weapons Crate (55$)", "", {
 	["specialWeapons",_crate] remoteExec ["bfm_fnc_applyCratePreset", 2, false];
 	ACE_maxWeightCarry = 4000;
 	publicVariable "ACE_maxWeightCarry";
+	[_crate] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 }, {true}] call ace_interact_menu_fnc_createAction;
 [crateBuyLaptop, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -316,6 +320,7 @@ _action = ["BuyCrate5", "Buy Support Crate (35$)", "", {
 	["support",_crate] remoteExec ["bfm_fnc_applyCratePreset", 2, false];
 	ACE_maxWeightCarry = 4000;
 	publicVariable "ACE_maxWeightCarry";
+	[_crate] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 }, {true}] call ace_interact_menu_fnc_createAction;
 [crateBuyLaptop, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -329,6 +334,7 @@ _action = ["BuyCrate6", "Buy Equipment Crate (40$)", "", {
 	["equipment",_crate] remoteExec ["bfm_fnc_applyCratePreset", 2, false];
 	ACE_maxWeightCarry = 4000;
 	publicVariable "ACE_maxWeightCarry";
+	[_crate] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 }, {true}] call ace_interact_menu_fnc_createAction;
 [crateBuyLaptop, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -342,6 +348,7 @@ _action = ["BuyCrate7", "Buy Uniform Crate (15$)", "", {
 	["uniform",_crate] remoteExec ["bfm_fnc_applyCratePreset", 2, false];
 	ACE_maxWeightCarry = 4000;
 	publicVariable "ACE_maxWeightCarry";
+	[_crate] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 }, {true}] call ace_interact_menu_fnc_createAction;
 [crateBuyLaptop, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -355,6 +362,7 @@ _action = ["BuyCrate8", "Buy Explosives Crate (70$)", "", {
 	["explosive",_crate] remoteExec ["bfm_fnc_applyCratePreset", 2, false];
 	ACE_maxWeightCarry = 4000;
 	publicVariable "ACE_maxWeightCarry";
+	[_crate] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 }, {true}] call ace_interact_menu_fnc_createAction;
 [crateBuyLaptop, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -368,6 +376,7 @@ _action = ["BuyCrate9", "Buy Launchers Crate (100$)", "", {
 	["launcher",_crate] remoteExec ["bfm_fnc_applyCratePreset", 2, false];
 	ACE_maxWeightCarry = 4000;
 	publicVariable "ACE_maxWeightCarry";
+	[_crate] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 }, {true}] call ace_interact_menu_fnc_createAction;
 [crateBuyLaptop, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -381,5 +390,6 @@ _action = ["BuyCrate10", "Buy Rations Crate (20$)", "", {
 	["rations",_crate] remoteExec ["bfm_fnc_applyCratePreset", 2, false];
 	ACE_maxWeightCarry = 4000;
 	publicVariable "ACE_maxWeightCarry";
+	[_crate] remoteExec ["bfm_fnc_saveVehicle", 2, false];
 }, {true}] call ace_interact_menu_fnc_createAction;
 [crateBuyLaptop, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;

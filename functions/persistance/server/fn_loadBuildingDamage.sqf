@@ -29,8 +29,17 @@ _allMObjects = nearestTerrainObjects [_centerposition, [], (worldSize / 2)];
 {
 	if (_forEachIndex != 0) then {
 		_result = (["read", ["destroyed_buildings", _x]] call _inidbi);
-		_found = nearestTerrainObjects [[_result#0, _result#1], [], 10];
-		_found#0 setDamage [1, false];
+		_found = nearestTerrainObjects [[_result#1#0, _result#1#1], [], 10];
+		if (_result#0) then {
+			(_found select 0) setDamage [1, false];
+		} else {
+			_pos = getPos (_found select 0);
+			_dir = getDir (_found select 0);
+			hideObjectGlobal (_found select 0);
+			_h = (_result select 2) createVehicle _pos;
+			_h setDir _dir;
+			_h setDamage [(_result select 3), false];
+		}
 	};
 } forEach _keysArray;
 missionNamespace setVariable ["loadingBuildingDamage", false];

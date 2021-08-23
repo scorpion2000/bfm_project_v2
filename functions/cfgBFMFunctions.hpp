@@ -20,11 +20,35 @@ class BFMFunctions {
 		class respawnMessage {};
 	};
 
+	class BFM_AI_Commander_Static
+	{
+		file = "functions\AI_Commander\static";
+		
+		class findCapital {};
+		class generateStartingResources {};
+		class generateResources {};
+	};
+
+	class BFM_AI_Commander_Logic
+	{
+		file = "functions\AI_Commander\logic";
+
+		class supplySystem {};
+	};
+
+	class BFM_OPFOR_Spawners
+	{
+		file = "functions\opf_spawn";
+
+		class createSupplyRun {};
+	};
+
 	class BFM_ServerPersistance 
 	{
 		file = "functions\persistance\server";
 		class deleteVehicle {};
 		class loadPatrols {};
+		class saveAreas {};
 		class savePatrol {};
 		class saveVehicle {};
 		class saveTime {};

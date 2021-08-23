@@ -14,9 +14,12 @@ VEH_IND_COUNT = 0;
 		_vehicle setDir _key#2;
 		_vehicle setFuelCargo _key#3;
 		_vehicle setDamage _key#4;
-		{
-			_vehicle setHitIndex [_forEachIndex, _x, false];
-		} forEach _key#5#2;
+		 _hasCrewSpot = fullCrew [_vehicle, "", true];
+		if (count _hasCrewSpot != 0) then {
+			{
+				_vehicle setHitIndex [_forEachIndex, _x, false];
+			} forEach _key#5#2;
+		};
 		clearMagazineCargoGlobal _vehicle;
 		clearWeaponCargoGlobal _vehicle;
 		clearBackpackCargoGlobal _vehicle;
@@ -39,20 +42,21 @@ VEH_IND_COUNT = 0;
 		} forEach ((_inventory select 3) select 0);
 		sleep 0.1;
 		_vehicle setVehicleAmmo 0;
-		systemChat str _key#7;
 		{_vehicle addMagazine [(_x select 0), (_x select 1)]} forEach _key#7;
 		clearItemCargoGlobal _vehicle;
 		_vehicle setVariable ["vehicleIndex", _keyIndex];
 		missionNamespace setVariable [format ["vehicle_%1", _keyIndex], _vehicle];
 		_vehicleArray pushback _vehicle;
-		_vehicle addEventHandler ["GetIn", {
-			[(_this select 0)] remoteExec ["bfm_fnc_saveVehicle", 2, false];
-			[(_this select 2)] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
-		}];
-		_vehicle addEventHandler ["GetOut", {
-			[(_this select 0)] remoteExec ["bfm_fnc_saveVehicle", 2, false];
-			[(_this select 2)] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
-		}];
+		if (count _hasCrewSpot != 0) then {
+			_vehicle addEventHandler ["GetIn", {
+				[(_this select 0)] remoteExec ["bfm_fnc_saveVehicle", 2, false];
+				[(_this select 2)] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
+			}];
+			_vehicle addEventHandler ["GetOut", {
+				[(_this select 0)] remoteExec ["bfm_fnc_saveVehicle", 2, false];
+				[(_this select 2)] remoteExec ["bfm_fnc_savePlayerStats", 2, false];
+			}];
+		};
 		_vehicle addEventHandler ["Killed", {
 			[(_this select 0)] remoteExec ["bfm_fnc_deleteVehicle", 2, false];
 		}];

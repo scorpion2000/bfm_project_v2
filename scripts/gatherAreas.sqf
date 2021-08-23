@@ -17,14 +17,17 @@
 			_armedVehicle,			//Can be heavily armored cars or just lada with a machine gun
 			_AAgun,					//Generally launchers, but can be anything defined in the config
 			_ATgun,					//Generally launchers, but can be anything defined in the config
-			_staticGun				//Generally static machine guns, but can be anything defined in the config
+			_staticGun,				//Generally static machine guns, but can be anything defined in the config
+			_transportVehicle		//Generally any transport vehicle, but can be anything defined in the config
 		],
 		_productionFocus,		//0 = materials, 1 = manpower, 2 = balanced
 		_productionLevel,		//1 - 3
 		_mixMat,				//Minimum material the commander should keep in the area
 		_mixMan,				//Minimum manpower the commander should keep in the area
 		_storedMaterial,
-		_storedManpower
+		_storedManpower,
+		_isCapital,
+		_requestingReinforcements		//When an area is running low on units, this variable is set to true. Any area that has this value set to false will send over units
 	]
 */
 
@@ -32,6 +35,8 @@ _allMapMarkers = allMapMarkers;
 
 _inidbi = ["new", "BFM_OpforDetails"] call OO_INIDBI;
 ["deleteSection", "Areas"] call _inidbi;
+
+_foundAreas = 0;
 
 {
 	if ((str _x) find "marker" != -1) then {
@@ -81,6 +86,7 @@ _inidbi = ["new", "BFM_OpforDetails"] call OO_INIDBI;
 				false,
 				false,
 				false,
+				"",
 				[
 					0,
 					0,
@@ -94,7 +100,9 @@ _inidbi = ["new", "BFM_OpforDetails"] call OO_INIDBI;
 				_minMat,
 				_minMan,
 				0,
-				0
+				0,
+				false,
+				false
 			];
 
 			_key = format ["area_%1", (_str select 1)];
@@ -106,3 +114,9 @@ _inidbi = ["new", "BFM_OpforDetails"] call OO_INIDBI;
 		}
 	}
 } forEach _allMapMarkers;
+sleep 1;
+[] remoteExec ["bfm_fnc_loadAreas", 2, false];
+sleep 1;
+[] remoteExec ["bfm_fnc_findCapital", 2, false];
+sleep 1;
+[] remoteExec ["bfm_fnc_generateStartingResources", 2, false];
